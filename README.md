@@ -1,15 +1,14 @@
-## This repository do below things
-### * before you run this script,
+## * before you run this script,
+### - prepare nfs server which provides /data directory
 ### - do not run this script as root or sudo
-### 1. install nvidia driver
-### 2. install nvidia-container-toolkit
-### 3. install docker
-### 4. set up k8s control plane
-### 5. install helm
-### 6. install helmfile
-### 7. install kustomize
-### 8. install uyuni infra
-### 9. install uyuni suite
+---------------------
+## This repository do below things
+### 1. set up k8s control plane
+### 2. install helm
+### 3. install helmfile
+### 4. install rook ceph
+### 5. install uyuni infra
+### 6. install uyuni suite
 -----------------------
 ## how to add worker nodes
 ### 1. run setup.sh up to specific lines
@@ -25,4 +24,4 @@
 ----------------------
 ## keycloak domain : http://???.???.???.???:30090
 ### default ID : Admin
-### default PW : xiilabPassword3#
+### default PW : xiilabPassword3# or keycloak12345
