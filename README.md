@@ -1,6 +1,7 @@
 ## * before you run this script,
 ### - prepare nfs server which provides /data directory
 ### - do not run this script as root or sudo
+### - you can create only one administrator account
 ---------------------
 ## This repository do below things
 ### 1. set up k8s control plane
