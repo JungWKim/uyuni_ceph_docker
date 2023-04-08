@@ -48,7 +48,7 @@ cat <<EOF | sudo tee /etc/docker/daemon.json
 EOF
 
 sudo systemctl restart docker
-sleep 180
+sleep 30
 
 # ssh configuration
 ssh-keygen -t rsa
@@ -71,7 +71,6 @@ sed -i "s/docker_version: '20.10'/docker_version: 'latest'/g" roles/container-en
 sed -i "s/container_manager: containerd/container_manager: docker/g" inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
 sed -i "s/docker_containerd_version: 1.4.12/docker_containerd_version: latest/g" roles/download/defaults/main.yml
 sed -i "s/host_architecture }}]/host_architecture }} signed-by=\/etc\/apt\/keyrings\/docker.gpg]/g" roles/container-engine/docker/vars/ubuntu.yml
-sed -i "s/# docker_cgroup_driver: systemd/docker_cgroup_driver: systemd/g" inventory/mycluster/group_vars/all/docker.yml
 
 # automatically disable swap partition
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml -K
@@ -140,7 +139,6 @@ cp ~/.kube/config applications/uyuni-suite/uyuni-suite/config
 sed -i "s/127.0.0.1/${IP}/g" applications/uyuni-suite/uyuni-suite/config
 sed -i "s/5/${PV_SIZE}/g" applications/uyuni-suite/values.yaml.gotmpl
 sed -i "15,18d" helmfile.yaml
-helm repo add bitnami https://charts.bitnami.com/bitnami
 helmfile --environment default -l type=base sync
 helmfile --environment default -l type=app sync
 cd ~
