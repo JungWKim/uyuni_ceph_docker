@@ -75,9 +75,9 @@ sed -i "s/host_architecture }}]/host_architecture }} signed-by=\/etc\/apt\/keyri
 # enable kubectl & kubeadm auto-completion
 echo "source <(kubectl completion bash)" >> ${HOME}/.bashrc
 echo "source <(kubeadm completion bash)" >> ${HOME}/.bashrc
-
 echo "source <(kubectl completion bash)" | sudo tee -a /root/.bashrc
 echo "source <(kubeadm completion bash)" | sudo tee -a /root/.bashrc
+source ${HOME}/.bashrc
 
 # automatically disable swap partition
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml -K
