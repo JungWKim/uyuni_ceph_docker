@@ -1,4 +1,4 @@
-## * before you run this script,
+## before you run this script
 ### - prepare nfs server which provides /data directory
 ### - do not run this script as root or sudo
 ### - you can create only one administrator account
@@ -12,7 +12,7 @@
 ### 6. install uyuni suite
 -----------------------
 ## how to add worker nodes
-### 1. run setup.sh up to specific lines
+### 1. run add_node.sh up to specific lines
 ### 2. In master node, edit $HOME/kubespray/inventory/mycluster/host.yaml.
 ### 3. copy master's administrator's public key to worker node
 ### 4. add worker node into k8s using ansible command
