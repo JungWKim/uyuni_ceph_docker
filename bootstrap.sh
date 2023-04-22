@@ -57,7 +57,7 @@ ssh-copy-id -i ~/.ssh/id_rsa ${USER}@${IP}
 
 # k8s installation via kubespray
 sudo apt install -y python3-pip
-git clone -b release-2.19 https://github.com/kubernetes-sigs/kubespray.git
+git clone -b release-2.20 https://github.com/kubernetes-sigs/kubespray.git
 cd kubespray
 pip install -r requirements.txt
 
