@@ -80,6 +80,14 @@ sed -i "s/etcd_deployment_type: host/etcd_deployment_type: docker/g" roles/kubes
 sed -i "s/# docker_storage_options: -s overlay2/docker_storage_options: -s overlay2/g" inventory/mycluster/group_vars/all/docker.yml
 sed -i "s/# docker_storage_options: -s overlay2/docker_storage_options: -s overlay2/g" roles/kubespray-defaults/defaults/main.yaml
 
+# enable dashboard / disable dashboard login / change dashboard service as nodeport
+sed -i "s/# dashboard_enabled: false/dashboard_enabled: true/g" inventory/mycluster/group_vars/k8s_cluster/addons.yml
+sed -i "s/dashboard_skip_login: false/dashboard_skip_login: true/g" roles/kubernetes-apps/ansible/defaults/main.yml
+sed -i'' -r -e "/targetPort: 8443/a\  type: NodePort" roles/kubernetes-apps/ansible/templates/dashboard.yml.j2
+
+# enable helm
+sed -i "s/helm_enabled: false/helm_enabled: true/g" inventory/mycluster/group_vars/k8s_cluster/addons.yml
+
 # enable kubectl & kubeadm auto-completion
 echo "source <(kubectl completion bash)" >> ${HOME}/.bashrc
 echo "source <(kubeadm completion bash)" >> ${HOME}/.bashrc
@@ -97,10 +105,9 @@ mkdir -p ${HOME}/.kube
 sudo cp -i /etc/kubernetes/admin.conf ${HOME}/.kube/config
 sudo chown ${USER}:${USER} ${HOME}/.kube/config
 
-# install helm
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
+# create sa and clusterrolebinding of dashboard to get cluster-admin token
+kubectl apply -f ~/kubespray_docker_ubuntu/sa.yaml
+kubectl apply -f ~/kubespray_docker_ubuntu/clusterrolebinding.yaml
 
 # install helmfile
 wget https://github.com/helmfile/helmfile/releases/download/v0.150.0/helmfile_0.150.0_linux_amd64.tar.gz
