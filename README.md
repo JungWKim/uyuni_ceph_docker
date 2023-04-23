@@ -4,6 +4,7 @@
 ### cri : docker latest version
 ### os : ubuntu 22.04
 ### provisioner : ceph-filesystem
+### kubespray : release-2.20
 ---------------------
 ## before you run this script
 ### - prepare nfs server which provides /data directory
