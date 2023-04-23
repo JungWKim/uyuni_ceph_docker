@@ -3,6 +3,7 @@
 ### cni : calico
 ### cri : docker latest version
 ### os : ubuntu 22.04
+### provisioner : ceph-filesystem
 ---------------------
 ## before you run this script
 ### - prepare nfs server which provides /data directory
