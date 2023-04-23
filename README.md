@@ -17,7 +17,7 @@
 ### 3. copy master's administrator's public key to worker node
 ### 4. add worker node into k8s using ansible command
 ### 5. In uyuni dashboard, add worker node.
-### 6. After you join additional masters, copy /etc/kubernetes/admin.conf to administrator's $HOME/.kube. Then configure HAproxy + keepalived
+### 6. After you join additional masters, copy /etc/kubernetes/admin.conf to administrator's $HOME/.kube.
 -----------------------
 ## how to remove uyuni-infra and uyuni-suite completely
 ### 1. helmfile --environment test -l type=app destroy
