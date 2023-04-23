@@ -106,8 +106,8 @@ sudo cp -i /etc/kubernetes/admin.conf ${HOME}/.kube/config
 sudo chown ${USER}:${USER} ${HOME}/.kube/config
 
 # create sa and clusterrolebinding of dashboard to get cluster-admin token
-kubectl apply -f ~/kubespray_docker_ubuntu/sa.yaml
-kubectl apply -f ~/kubespray_docker_ubuntu/clusterrolebinding.yaml
+kubectl apply -f ~/uyuni_ceph_docker/sa.yaml
+kubectl apply -f ~/uyuni_ceph_docker/clusterrolebinding.yaml
 
 # install helmfile
 wget https://github.com/helmfile/helmfile/releases/download/v0.150.0/helmfile_0.150.0_linux_amd64.tar.gz
