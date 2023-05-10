@@ -43,3 +43,5 @@
 ### 2. prometheus, alertmanager, keycloak, kafka 등이 statefulset에 속한 파드들만 강제 삭제. 
 ### 3. uyuni suite의 경우 core만 crashloop가 발생하므로 pvc는 삭제하지 않은 상태로 uyuni suite 전부 삭제 후 재배포
 ### 4. (선택) 다운된 마스터 노드가 복구 불가능한 경우, 해당 마스터를 클러스터에서 제외하고 OS 재설치 등의 작업을 거친 후에 같은 아이피로 클러스터에 합류
+----------------------
+## 모든 계정의 초기 패스워드  : uyuni
