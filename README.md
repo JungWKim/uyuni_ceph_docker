@@ -7,6 +7,7 @@
 ### kubespray : release-2.20
 ---------------------
 ## before you run this script
+### - install prerequisite software using setup_server repository
 ### - prepare nfs server which provides /data directory
 ### - do not run this script as root or sudo
 ### - you can create only one administrator account
@@ -26,6 +27,7 @@
 ### 4. add worker node into k8s using ansible command
 ### 5. In uyuni dashboard, add worker node.
 ### 6. After you join additional masters, copy /etc/kubernetes/admin.conf to administrator's $HOME/.kube.
+## 추가적인 내용은 kubespray_ubuntu 레포지토리 참고할 것
 -----------------------
 ## how to remove uyuni-infra and uyuni-suite completely
 ### 1. helmfile --environment test -l type=app destroy
