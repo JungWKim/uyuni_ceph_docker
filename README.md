@@ -30,9 +30,10 @@
 ## 추가적인 내용은 kubespray_ubuntu 레포지토리 참고할 것
 -----------------------
 ## how to remove uyuni-infra and uyuni-suite completely
-### 1. helmfile --environment test -l type=app destroy
-### 2. helmfile --environment test -l type=base destroy
-### 3. delete every pvcs, pvs and files, configmaps, secrets in nfs server
+### 1. helmfile --environment default -l type=app destroy
+### 2. helmfile --environment default -l type=base destroy
+### 3. helmfile --environment default -l app=<app-name> destroy
+### 4. delete every pvcs, pvs and files, configmaps, secrets in nfs server
 ----------------------
 ## keycloak domain : http://???.???.???.???:30090
 ### default ID : Admin
